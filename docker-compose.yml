@@ -1,0 +1,29 @@
+services:
+  dbapp:
+    build:
+      context: ./dbapp
+    image: dbapp_image_by_jenkins_git
+    container_name: dbapp_container
+    ports:
+      - "8001:8001"
+    networks:
+      - iris_net
+
+  webapp:
+    build:
+      context: ./webapp
+    image: webapp_image_by_jenkins_git
+    container_name: webapp_container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - dbapp
+    networks:
+      - iris_net
+    environment:
+      DB_URL: http://dbapp_container:8001
+  
+
+networks:
+  iris_net:
+    external: true

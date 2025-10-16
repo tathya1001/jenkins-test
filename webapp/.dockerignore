@@ -1,0 +1,6 @@
+.venv
+.gitignore
+.python-version
+uv.lock
+README.md
+pyproject.toml
