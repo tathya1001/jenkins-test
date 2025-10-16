@@ -8,12 +8,12 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                echo 'Checking out code from GitHub repository...'
-                git branch: 'main', url: 'https://github.com/tathya1001/jenkins-test.git'
-            }
-        }
+        // stage('Checkout Code') {
+        //     steps {
+        //         echo 'Checking out code from GitHub repository...'
+        //         git branch: 'main', url: 'https://github.com/tathya1001/jenkins-test.git'
+        //     }
+        // }
 
         stage('Show Workspace') {
             steps {
