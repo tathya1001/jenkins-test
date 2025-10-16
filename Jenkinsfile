@@ -2,26 +2,18 @@ pipeline {
     agent {
         node {
             label 'local'
-            customWorkspace 'C:\\College Files\\MLOPS\\P5\\git_jenkins'
+            customWorkspace 'C:\\College Files\\MLOPS\\P5\\git_remote'
         }
     }
 
     stages {
 
-        // stage('Checkout Code') {
-        //     steps {
-        //         echo 'Checking out code from local Git repository (same workspace)...'
-        //         git branch: 'main', url: "file:///C:/College%20Files/MLOPS/P5/git_jenkins"
-        //     }
-        // }
-
-        stage('Prepare Workspace') {
+        stage('Checkout Code') {
             steps {
-                echo 'Using existing local workspace...'
-                bat 'git status"'
+                echo 'Checking out code from GitHub repository...'
+                git branch: 'main', url: 'https://github.com/tathya1001/jenkins-test.git'
             }
         }
-
 
         stage('Show Workspace') {
             steps {
@@ -60,8 +52,8 @@ pipeline {
 
     post {
         always {
-            echo 'Ending...'
-            // bat 'docker-compose down'
+            echo 'Pipeline finished.'
+            // bat 'docker-compose down'   // uncomment if you want to cleanup
         }
     }
 }
