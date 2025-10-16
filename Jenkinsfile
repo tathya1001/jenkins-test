@@ -15,12 +15,12 @@ pipeline {
         //     }
         // }
 
-        stage('Prepare Workspace') {
-            steps {
-                echo 'Using existing local workspace...'
-                bat 'git status || echo "Git not initialized, skipping..."'
-            }
-        }
+        // stage('Prepare Workspace') {
+        //     steps {
+        //         echo 'Using existing local workspace...'
+        //         bat 'git status || echo "Git not initialized, skipping..."'
+        //     }
+        // }
 
 
         stage('Show Workspace') {
