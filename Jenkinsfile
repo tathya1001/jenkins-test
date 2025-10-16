@@ -18,7 +18,7 @@ pipeline {
         stage('Prepare Workspace') {
             steps {
                 echo 'Using existing local workspace...'
-                bat 'git status || echo "Git not initialized, skipping..."'
+                bat 'git status"'
             }
         }
 
@@ -60,7 +60,7 @@ pipeline {
 
     post {
         always {
-            echo 'Cleaning up containers after pipeline completion...'
+            echo 'Ending...'
             // bat 'docker-compose down'
         }
     }
