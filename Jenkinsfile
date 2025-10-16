@@ -8,12 +8,20 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
+        // stage('Checkout Code') {
+        //     steps {
+        //         echo 'Checking out code from local Git repository (same workspace)...'
+        //         git branch: 'main', url: "file:///C:/College%20Files/MLOPS/P5/git_jenkins"
+        //     }
+        // }
+
+        stage('Prepare Workspace') {
             steps {
-                echo 'Checking out code from local Git repository (same workspace)...'
-                git branch: 'main', url: "file:///C:/College%20Files/MLOPS/P5/git_jenkins"
+                echo 'Using existing local workspace...'
+                bat 'git status || echo "Git not initialized, skipping..."'
             }
         }
+
 
         stage('Show Workspace') {
             steps {
